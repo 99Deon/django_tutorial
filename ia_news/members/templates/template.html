@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+
+<body>
+
+{% for x in fruits %}
+  <h1>{{ x }}</h1>
+{% endfor %}
+
+<p>In views.py you can see what the fruits variable looks like.</p>
+<h1>Hello {{ firstname }}, how are you?</h1>
+
+
+<!-- with variable -->
+{% with firstname="Tobias" %}
+<h1>Hello {{ firstname }}, how are you?</h1>
+{% endwith %}
+
+<!-- with for -->
+<ul>
+  {% for x in mymembers %}
+    <li>{{ x.username }} {{ x.is_staff }} 
+    </li>
+  {% endfor %}
+</ul>
+
+<!--  if statements and for loops.-->
+{% if greeting == 1 %}
+  <h1>Hello</h1>
+{% else %}
+  <h1>Bye</h1>
+{% endif %}
+
+
+<h1>Welcome Everyone</h1>
+{% comment "this was the original welcome message" %}
+    <h1>Welcome ladies and gentlemen</h1>
+{% endcomment %}
+
+
+
+{% include 'footer.html' %} 
+</body>
+</html>
